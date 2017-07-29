@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "Api do ilou.",
   "main": "app.js",
-  "repository": "https://github.com/juninmd/ilou-api.git",
+  "repository": "https://github.com/juninmd/groovy-core.git",
   "author": "juninmd <jr_acn@yahoo.com.br>",
   "license": "MIT",
+  "engines": {
+    "node": "8.x.x",
+    "npm": "5.x.x"
+  },
   "dependencies": {
     "body-parser": "^1.17.2",
     "consign": "^0.1.6",
