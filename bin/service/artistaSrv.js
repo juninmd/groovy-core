@@ -7,7 +7,7 @@ const mysql = require('jano-mysql')(webconfig.database.MYSQL);
 module.exports = {
     getById: (query) => {
         return new Promise((resolve, reject) => {
-            artistaRepository.getById(query.email, query.senha)
+            artistaRepository.getById(query.EMAIL, query.SENHA)
                 .then(q => {
                     if (q.content.length == 0) {
                         return reject({
@@ -29,7 +29,19 @@ module.exports = {
     insert: (body) => {
         return new Promise((resolve, reject) => {
             let connection = {};
-            mysql.beginTransaction()
+            artistaRepository.getByEmail(body.EMAIL)
+                .then(q => {
+                    if (q.content.length == 0) {
+                        return mysql.beginTransaction();
+                    }
+                    return Promise.reject({
+                        message: {
+                            userMessage: "Esse usuário já se encontra registrado.",
+                            developerMessage: "Duplicidade de e-mail"
+                        },
+                        statusCode: 400
+                    });
+                })
                 .then(q => {
                     connection = q;
                     return artistaRepository.insertTransaction(connection, body);
@@ -62,8 +74,11 @@ module.exports = {
                     return resolve(q);
                 })
                 .catch(err => {
-                    connection.endConnection(false)
-                        .then(q => reject(err));
+                    if (connection.endConnection)
+                        return connection.endConnection(false)
+                            .then(q => reject(err));
+
+                    return reject(err);
                 });
         });
     }
