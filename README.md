@@ -1,1 +1,1 @@
-# ilou-api
+# Groovy-CORE
