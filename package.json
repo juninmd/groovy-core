@@ -1,0 +1,16 @@
+{
+  "name": "ilou-api",
+  "version": "1.0.0",
+  "description": "Api do ilou.",
+  "main": "app.js",
+  "repository": "https://github.com/juninmd/ilou-api.git",
+  "author": "juninmd <jr_acn@yahoo.com.br>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "consign": "^0.1.6",
+    "express": "^4.15.3",
+    "jano-mysql": "^0.0.6",
+    "shazam-middleware": "^0.0.4"
+  }
+}
