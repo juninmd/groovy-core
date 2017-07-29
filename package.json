@@ -1,7 +1,7 @@
 {
-  "name": "ilou-api",
+  "name": "groovy-core",
   "version": "1.0.0",
-  "description": "Api do ilou.",
+  "description": "Api Groovy.",
   "main": "app.js",
   "repository": "https://github.com/juninmd/groovy-core.git",
   "author": "juninmd <jr_acn@yahoo.com.br>",
