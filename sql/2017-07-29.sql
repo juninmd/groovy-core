@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `gro_t_artista`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gro_t_artista` (
-  `IDARTISTA` int(11) NOT NULL,
+  `IDARTISTA` int(11) NOT NULL AUTO_INCREMENT,
   `EMAIL` varchar(100) NOT NULL,
   `NOME` varchar(45) NOT NULL,
   `SENHA` varchar(45) DEFAULT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE `gro_t_artista_instrumento` (
   `IDARTISTA` int(11) NOT NULL,
   `IDINSTRUMENTO` int(11) NOT NULL,
   PRIMARY KEY (`IDINSTRUMENTO`,`IDARTISTA`),
-  KEY `FK_ARTISTA_INSTRUMENTO_idx` (`IDARTISTA`),
+  KEY `FK_ART_INST_ART_idx` (`IDARTISTA`),
   CONSTRAINT `FK_ART_INST_ART` FOREIGN KEY (`IDARTISTA`) REFERENCES `gro_t_artista` (`IDARTISTA`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_ART_INST_INST` FOREIGN KEY (`IDINSTRUMENTO`) REFERENCES `gro_t_instrumento` (`IDINSTRUMENTO`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -106,7 +106,7 @@ CREATE TABLE `gro_t_estilo` (
   `DESCRICAO` varchar(45) NOT NULL,
   PRIMARY KEY (`IDESTILO`),
   UNIQUE KEY `IDESTILO_UNIQUE` (`IDESTILO`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,6 +115,7 @@ CREATE TABLE `gro_t_estilo` (
 
 LOCK TABLES `gro_t_estilo` WRITE;
 /*!40000 ALTER TABLE `gro_t_estilo` DISABLE KEYS */;
+INSERT INTO `gro_t_estilo` VALUES (1,'Forró'),(2,'Rock'),(3,'Pagode'),(4,'Sertanejo');
 /*!40000 ALTER TABLE `gro_t_estilo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +130,7 @@ CREATE TABLE `gro_t_instrumento` (
   `IDINSTRUMENTO` int(11) NOT NULL AUTO_INCREMENT,
   `DESCRICAO` varchar(45) NOT NULL,
   PRIMARY KEY (`IDINSTRUMENTO`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,6 +139,7 @@ CREATE TABLE `gro_t_instrumento` (
 
 LOCK TABLES `gro_t_instrumento` WRITE;
 /*!40000 ALTER TABLE `gro_t_instrumento` DISABLE KEYS */;
+INSERT INTO `gro_t_instrumento` VALUES (1,'Violão'),(2,'Gaita'),(3,'Guitarra');
 /*!40000 ALTER TABLE `gro_t_instrumento` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -150,4 +152,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-29 12:22:29
+-- Dump completed on 2017-07-29 18:53:35
