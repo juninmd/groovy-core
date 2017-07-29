@@ -10,11 +10,11 @@ let getBanco = () => {
         }
     }
     return {
-        host: 'localhost',
-        user: 'root',
-        database: 'groovy',
-        password: '',
-        port: 3306
+        host: process.env.dbhost,
+        user: process.env.dbuser,
+        database: process.env.dbdatabase,
+        password: process.env.dbpassword,
+        port: +process.env.dbport
     }
 }
 
