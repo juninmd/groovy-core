@@ -29,7 +29,7 @@ module.exports = {
     insert: (body) => {
         return new Promise((resolve, reject) => {
             let connection = {};
-            artistaRepository.getByEmail(body.EMAIL)
+            artistaRepository.getByEmail(body.email)
                 .then(q => {
                     if (q.content.length == 0) {
                         return mysql.beginTransaction();

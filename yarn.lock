@@ -317,9 +317,9 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-jano-mysql@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/jano-mysql/-/jano-mysql-0.0.6.tgz#81699c2dac12d0e65e66e455e1ac3616809a77f9"
+jano-mysql@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/jano-mysql/-/jano-mysql-0.0.7.tgz#21d0791a8d45ff8db0c083036f69f8122e2875a8"
   dependencies:
     mysql "^2.13.0"
 
