@@ -2,6 +2,7 @@ const webconfig = require('../webconfig');
 const artistaRepository = require('../repository/artistaRepository');
 const artistaEstiloRepository = require('../repository/artistaEstiloRepository');
 const artistaInstrumentoRepository = require('../repository/artistaInstrumentoRepository');
+const feedbackRepository = require('../repository/feedbackRepository');
 const mysql = require('jano-mysql')(webconfig.database.MYSQL);
 
 module.exports = {
@@ -66,6 +67,9 @@ module.exports = {
                     });
 
                     return Promise.all(promises);
+                })
+                .then(q => {
+                    return feedbackRepository.insertTransaction(connection, body);
                 })
                 .then(q => {
                     return connection.endConnection(true);

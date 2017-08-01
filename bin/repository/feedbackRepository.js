@@ -14,5 +14,15 @@ module.exports = {
                 P4: body.P4,
                 P5: body.P5,
             });
+    },
+    insertTransaction: (connection, body) => {
+        return mysql.executeTransaction(connection, `INSERT INTO gro_t_feedback SET ?`,
+            {
+                P1: body.P1,
+                P2: body.P2,
+                P3: body.P3,
+                P4: body.P4,
+                P5: body.P5,
+            });
     }
 };

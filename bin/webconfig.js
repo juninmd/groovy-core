@@ -6,7 +6,7 @@ let getBanco = () => {
             user: 'root',
             database: 'groovy',
             password: '',
-            port: 3306
+            port: 5500
         }
     }
     return {
